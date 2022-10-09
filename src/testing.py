@@ -5,14 +5,10 @@ from gpt import GPT, Example, set_openai_key
 ## Loading .env file with data
 load_dotenv()
 
-api_key = os.getenv("OPENAI_API_KEY")
-set_openai_key(api_key)
+set_openai_key(os.getenv("OPENAI_API_KEY"))
 gpt = GPT()
-prompt = "integral from a to b of f of x"
+prompt = "eggs and flowers are the ingredients of a cake"
 print(gpt.get_top_reply(prompt))
 
-gpt.add_example(Example("Two plus two equals four", "2 + 2 = 4"))
-print(gpt.get_top_reply(prompt))
-
-gpt.add_example(Example('The integral from zero to infinity', '\\int_0^{\\infty}'))
+gpt.add_example(Example("chocolate cake is made from ", "2 + 2 = 4"))
 print(gpt.get_top_reply(prompt))
